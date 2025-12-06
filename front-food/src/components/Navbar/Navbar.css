@@ -1,20 +1,28 @@
 
 .navbar{
-    background-color: rgb(211, 209, 209);
+    background-color: #e9e5e5;
     padding: 15px;
+    border-radius: 4px;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: auto;
+    max-width: 96%;
 }
 .logo {
-    color: orangered;
+    color: #ff6b35;
     font-size: 32px;
     font-weight: 800;
 }
+.logo i {
+    font-style: normal;
+    color: rgb(39, 39, 39);
+}
 .navbar-menu {
+    cursor: pointer;
     margin-top: 10px;
     font-size: 18px;
     display: flex;
@@ -75,14 +83,43 @@ input:focus {
     font-weight: 600;
 }
 .nav-login:hover {
-   background-color: #ece5aa;
+   background-color: #f8f4d8;
 }
 .nav-cart {
+    margin-top: 8px;
     font-size: 24px;
     color: rgb(39, 39, 39);
     cursor: pointer;
 }
+.navbar .active {
+    padding-bottom: 2px;
+    border-radius: 4px;
+    border-bottom: 2px solid orangered;
+}
+.nav-cart .dot-cart {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    position: relative;
+    top: -32px;
+    left: 10px;
+    border: 1px solid white;
+}
 
-
+@media (max-width: 768px) {
+    .navbar{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-right{
+        gap: 10px;
+    }
+}
+@media (max-width: 480px) {
+    .nav-search input:focus {
+        width: 80px;
+    }
+}
 
 

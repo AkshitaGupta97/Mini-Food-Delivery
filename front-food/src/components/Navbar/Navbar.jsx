@@ -5,15 +5,14 @@ function Navbar(){
 
     const [menu, setMenu] = useState("home");
 
-
   return (
     <div className="navbar">
-        <div className="logo">Foodie</div>
+        <div className="logo">Foodie<i>Hub</i></div>
         <ul className="navbar-menu">
-            <li className={menu="home"?"active":""}>Home</li>
-            <li className={menu="menu"?"menu":""}>Menu</li>
-            <li className={menu="mobile-app"?"mobile-app":""}>Mobile-app</li>
-            <li className={menu="contact"?"contact":""}>Contact</li>
+            <li onClick={() => setMenu("home")} className={menu==="home"?"active":""}>home</li>
+            <li onClick={() => setMenu("menu")} className={menu==="menu"?"active":""}>menu</li>
+            <li onClick={() => setMenu("mobile-app")} className={menu==="mobile-app"?"active":""}>mobile-app</li>
+            <li onClick={() => setMenu("contact")} className={menu==="contact"?"active":""}>contact-us</li>
         </ul>
         <div className="nav-right">
             <div className="nav-search">
@@ -22,6 +21,7 @@ function Navbar(){
             </div>
             <div className="nav-cart">
                <span className="material-icons-outlined">shopping_cart</span>
+               <div className="dot-cart"></div>
             </div>
             <div className="nav-login">
                 <button className="signup-btn">Sign in</button>
