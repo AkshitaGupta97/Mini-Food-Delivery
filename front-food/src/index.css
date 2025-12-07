@@ -10,6 +10,12 @@
 }
 body{
   font-family: 'Poppins', sans-serif;
+  max-width: 98%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: blue;
 }
 a{
   text-decoration: none;

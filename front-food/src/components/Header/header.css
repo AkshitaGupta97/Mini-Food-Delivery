@@ -1,12 +1,10 @@
 
 /* Wrapper adds symmetric left/right gap */
 .header-wrapper {
-    padding: 0 24px; /* symmetric gap left & right */
+   /*  padding: 0 16px;  symmetric gap left & right */
     background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02));
-    position: relative;
     overflow: hidden;
-    margin: 5px;
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 .header-contents {
