@@ -3,7 +3,6 @@
 .header-wrapper {
    /*  padding: 0 16px;  symmetric gap left & right */
     background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02));
-    overflow: hidden;
     margin-top: 6px;
 }
 

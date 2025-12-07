@@ -1,5 +1,5 @@
 .explore-menu-container {
-    padding: 60px 0;
+    padding: 40px 0;
     background-color: #f9f9f9;
     border-radius: 8px;
     margin: 0 auto;
@@ -31,12 +31,13 @@
     justify-content: center;
 }
 .explore-menu-item {
-    width: 200px;   
+    cursor: pointer;
+    width: 160px;   
     height: 200px;
     flex: 1 1 calc(25% - 24px);
     max-width: calc(25% - 24px);
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     overflow: hidden;
     text-align: center;
@@ -48,11 +49,39 @@
 }
 .explore-menu-item-card {
     padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 200ms ease, transform 200ms ease;
 }
 .explore-menu-item-card img {
     width: 50%;
     height: auto;
     border-radius: 8px;
+}
+.explore-menu-item-card h3 {
+    margin-top: 12px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: #121212;
+}
+.explore-menu-item-card.active {
+    /* highlight selected card with orange ring (no layout shift) */
+   border: 2px solid #ff6347;
+   padding: 36px;
+    border-radius: 50%;
+}
+
+.explore-menu-item-card:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,99,71,0.6);
+}
+
+.explore-menu-container hr {
+    margin-top: 40px;
+    border: 2px solid #ff6347;
+    border-top: 2px solid #a29f9f;
 }
 
 @media (max-width: 1024px) {
@@ -67,6 +96,13 @@
         max-width: calc(50% - 24px);
     }
 }
+/*  flex: 1 1 calc(50% - 24px); 
+    grow, shrink, basis 
+    grow: 1 (can grow if needed) item allowed to grow if space available
+    shrink: 1 (can shrink if needed) item allowed to shrink if space is limited
+    basis: calc(50% - 24px) initial size before growing or shrinking, it means each item will take up half the container width minus 24px for gap
+    so on mobile or tablet screens, each menu item will take up about half the width of the container with space between them
+ */
 
 
 
