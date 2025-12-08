@@ -38,6 +38,44 @@
     height: 180px;
     overflow: hidden;
     flex: 0 0 auto;
+    position: relative;
+}
+
+/* counter / add button inside image area */
+.food-item-counter, .add {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: hsla(40, 2%, 25%, 0.871);
+    padding: 6px 8px;
+    border-radius: 20px;
+}
+.food-item-img-container .add-symbol {
+    color: rgb(248, 98, 71);
+}
+.food-item-img-container .remove-symbol {
+    color: rgb(200, 243, 200);
+}
+
+.add {
+    cursor: pointer;
+}
+
+.food-item-counter .counter-btn {
+    cursor: pointer;
+    user-select: none;
+}
+
+.food-item-counter .counter-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(250, 231, 231);
 }
 
 .food-item-image {
