@@ -1,0 +1,52 @@
+.app-download {
+    margin: auto auto;
+    margin-top: 50px;
+    font-size: max(3vw, 20px);
+    text-align: center;
+    font-weight: 500;
+}
+.app-download .foodie{
+    color: #ff5722;
+    font-size: max(3vw, 18px);
+}
+.app-download span{
+    color: #1a1919;
+}
+
+.app-download-platforms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app-download-platforms img {
+    width: 150px;
+    margin: 10px;
+    cursor: pointer;
+}
+.app-download-platforms .image-2 {
+    width: 220px;
+}
+.app-download-platforms img:hover {
+    transform: scale(1.1);
+    transition: transform 150ms ease;
+}
+
+@media (max-width: 600px) {
+    .app-download {
+        font-size: 18px;
+        margin-top: 30px;
+    }
+    .app-download .foodie{
+        font-size: 20px;
+    }
+    .app-download-platforms {
+        flex-direction: column;
+    }
+    .app-download-platforms img {
+        width: 130px;
+        margin: 8px;
+    }
+    .app-download-platforms .image-2 {
+        width: 180px;
+    }
+}

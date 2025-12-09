@@ -69,10 +69,6 @@ input::placeholder {
 input:focus::placeholder {
     color: transparent;
 }
-input:focus {
-    width: 120px;
-    transition: 0.3s;
-}
 
 .nav-login{
     border-radius: 10px;
@@ -117,13 +113,66 @@ input:focus {
     padding: 10px 15px;
 }
 
-@media (max-width: 768px) {
-    .navbar{
-        flex-direction: column;
-        gap: 10px;
+@media (max-width: 1050px){
+    .logo {
+        font-size: 28px;
+    }
+    .navbar-menu {
+        gap: 20px;
+        font-size: 16px;
+    }
+    .nav-right{
+        gap: 15px;
+    }
+    .nav-search input {
+        font-size: 14px;
+        padding: 3px 5px;
+    }
+    .nav-right span {
+        width: 28px;
+    }
+    .signup-btn {
+        font-size: 14px;
+        padding: 3px 6px;
+    }
+}
+
+@media (max-width: 900px){
+    .logo {
+        font-size: 24px;
+    }
+    .navbar-menu {
+        gap: 16px;
+        font-size: 14px;
     }
     .nav-right{
         gap: 10px;
+    }
+    .nav-search input {
+        font-size: 12px;
+        padding: 2px 4px;
+    }
+    .nav-right span {
+        width: 24px;
+    }
+    .signup-btn {
+        font-size: 12px;
+        padding: 2px 4px;
+    }
+}   
+
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+    }
+   .nav-login button{
+        font-size: 14px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        padding: 2px 4px;
+    }
+    .nav-search input {
+        width: 80px;
     }
 }
 @media (max-width: 480px) {

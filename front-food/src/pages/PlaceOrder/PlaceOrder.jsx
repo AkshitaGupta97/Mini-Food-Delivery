@@ -2,7 +2,9 @@ import "./PlaceOrder.css";
 
 function PlaceOrder() {
   return (
-    <div>PlaceOrder</div>
+    <div>
+      hii
+    </div>
   )
 }
 
