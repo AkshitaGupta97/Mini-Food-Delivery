@@ -1,21 +1,23 @@
 .login-popup {
     position: absolute;
     z-index: 11;
-    width: 100%;
+    top: 16px;
+    width: 98%;
     height: 100%;
-    background-color: rgba(210, 192, 192, 0.124);
+    background-color: rgba(210, 192, 192, 0.238);
     display: grid;
 }
 .login-popup-container {
     place-self: center;
     width: max(23vw,  400px);
     color: chocolate;
-    background-color: beige;
+    background-color: rgb(250, 216, 167);
     display: flex;
     flex-direction: column;
     gap: 30px;
     padding: 30px 36px;
     border-radius: 8px;
+    box-shadow: 6px -4px 10px #f3854a;
     font-size: 16px;
     animation: fadeIn 0.5s;
 }
@@ -52,16 +54,52 @@
 }
 input::placeholder {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 1px;
 }
 input {
     outline: 1px solid orangered;
 }
-input:focus{
-    outline: none;
-    border: 2px solid saddlebrown;
+.sign-login{
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #e07136;
+    color: antiquewhite;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+.sign-login:hover {
+    background-color: #c35920;
+    transform: translateY(-4px);
+}
+.login-popup-condition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+p {
+    color: rgb(20, 19, 19);
+    letter-spacing: 1px;
+}
+.color-login-sign {
+    color: orangered;
+    cursor: pointer;
 }
 
+@media (max-width: 768px) {
+    .login-popup-container {
+        width: max(23vw,  400px);
+        padding: 20px 24px;
+        gap: 20px;
+    }
+    .login-popup-title h2 {
+        font-size: 18px;
+    }
+    .sign-login {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+}
 
 

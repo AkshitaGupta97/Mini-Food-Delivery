@@ -19,7 +19,7 @@ function Navbar({setShowLogin}) {
 
     return (
         <div className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-            <div className="logo">Foodie<i>Hub</i></div>
+            <Link to="/"><div className="logo">Foodie<i>Hub</i></div></Link>
             <ul className="navbar-menu">
                 <Link to="/" onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>home</Link>
                 <a href="#explore-menu" onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""}>menu</a>
@@ -32,7 +32,7 @@ function Navbar({setShowLogin}) {
                     <span className="search-btn material-icons-outlined">search</span>
                 </div>
                 <div className="nav-cart">
-                    <span className="material-icons-outlined">shopping_cart</span>
+                    <Link to="/cart"><span className="material-icons-outlined">shopping_cart</span></Link>
                     <div className="dot-cart"></div>
                 </div>
                 <div className="nav-login">

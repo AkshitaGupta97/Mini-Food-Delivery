@@ -9,7 +9,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: auto;
+    margin: 0; /* occupy full width */
+    width: 98%;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -108,7 +109,7 @@ input:focus::placeholder {
 
 /* when page is scrolled add a subtle solid background and shadow for readability */
 .navbar.scrolled{
-    background-color: rgba(248, 237, 158, 0.98);
+    background-color: #f8ee9ec7;
     box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     padding: 10px 15px;
 }
@@ -131,15 +132,15 @@ input:focus::placeholder {
     .nav-right span {
         width: 28px;
     }
-    .signup-btn {
+    .nav-login {
         font-size: 14px;
         padding: 3px 6px;
     }
 }
 
-@media (max-width: 900px){
+@media (max-width: 940px){
     .logo {
-        font-size: 24px;
+        font-size: 22px;
     }
     .navbar-menu {
         gap: 16px;
@@ -179,6 +180,14 @@ input:focus::placeholder {
     .nav-search input:focus {
         width: 80px;
     }
+}
+
+/* extra small screens: compact navbar */
+@media (max-width: 360px) {
+    .logo { font-size: 18px }
+    .navbar { padding: 8px }
+    .nav-right { gap: 8px }
+    .nav-cart { font-size: 20px }
 }
 
 

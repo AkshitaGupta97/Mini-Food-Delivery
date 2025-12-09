@@ -10,7 +10,7 @@ function LoginPop({setShowLogin}) {
       <form className="login-popup-container" >
         <div className="login-popup-title">
           <h2>{currState}</h2>
-          <p onClick={() => setShowLogin(false)} ><span class=" cross-icon material-symbols-outlined">close_small</span></p>
+          <p onClick={() => setShowLogin(false)} ><span className=" cross-icon material-symbols-outlined">close_small</span></p>
         </div>
         <div className="login-popup-inputs">
           {
@@ -21,14 +21,14 @@ function LoginPop({setShowLogin}) {
           <input type="email" placeholder="Your email" required  />
           <input type="password" placeholder="Your password" required />
         </div>
-        <button>{currState==="Sign Up" ? "Create account": "Login"}</button>
+        <button className="sign-login">{currState==="Sign Up" ? "Create account": "Login"}</button>
         <div className="login-popup-condition">
           <input type="checkbox" required />
           <p>By continuing, i agree to the terms of use & privacy policy. </p>
         </div>
         {
-          currState==="Login"? <p>Create a new account? <span onClick={() => setCurrState("Sign Up")}>Click here</span> </p>
-          : <p>Already have an account? <span onClick={() => setCurrState("Login")}>Login here</span> </p>
+          currState==="Login"? <p>Create a new account? <span className="color-login-sign" onClick={() => setCurrState("Sign Up")}>Click here</span> </p>
+          : <p>Already have an account? <span className="color-login-sign" onClick={() => setCurrState("Login")}>Login here</span> </p>
         }
         
       </form>
