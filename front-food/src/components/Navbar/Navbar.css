@@ -10,7 +10,10 @@
     justify-content: space-between;
     align-items: center;
     margin: auto;
-
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 240ms ease, box-shadow 240ms ease, padding 240ms ease;
 }
 .logo {
     color: #ff6b35;
@@ -105,6 +108,13 @@ input:focus {
     top: -32px;
     left: 10px;
     border: 1px solid white;
+}
+
+/* when page is scrolled add a subtle solid background and shadow for readability */
+.navbar.scrolled{
+    background-color: rgba(248, 237, 158, 0.98);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    padding: 10px 15px;
 }
 
 @media (max-width: 768px) {

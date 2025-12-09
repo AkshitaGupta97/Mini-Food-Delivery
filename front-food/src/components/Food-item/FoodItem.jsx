@@ -1,11 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import "./foodItem.css"
 import { StoreContext } from "../context/StoreContext";
 
 const FoodItem = ({id, name, price, description, image}) => {
 
-    const [itemCount, setItemCount] = useState(0);
-    const {cartItem, addToCart, removeFromCart} = useContext(StoreContext);
+  const {cartItem, addToCart, removeFromCart} = useContext(StoreContext);
 
   return (
     <div className="food-item">
@@ -21,7 +20,7 @@ const FoodItem = ({id, name, price, description, image}) => {
                     <p className="counter-btn" onClick={()=> removeFromCart(id)}>
                       <span className="remove-symbol material-symbols-outlined">remove</span>
                     </p>
-                    <p className="counter-value">{itemCount}</p>
+                    <p className="counter-value">{cartItem[id]}</p>
                     <p className="counter-btn" onClick={() => addToCart(id)}>
                       <span className="add-symbol material-symbols-outlined">add</span>
                     </p>
@@ -32,7 +31,7 @@ const FoodItem = ({id, name, price, description, image}) => {
         <div className="food-item-info">
             <div className="food-item-name-rating">
                 <h2>{name}</h2>
-                <p>✨✨✨✨✨</p>
+                <p>⭐⭐⭐⭐⭐</p>
             </div>
             <p className="food-item-description">{description}</p>
             <p className="food-item-price">${price}</p>
