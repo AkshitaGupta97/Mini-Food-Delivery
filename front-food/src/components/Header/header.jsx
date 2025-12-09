@@ -7,9 +7,9 @@ function HeaderPage() {
         <div className="header-text">
           <h1>Order Your Fav Food Dear <i>Foodie !</i></h1>
           <p>
-            Love is temporary, but biryani is forever!!  Roses are red, pizza is round,
-            love is sweet, but food is profound!!  You can’t buy happiness, but you
-            can order momos—and that’s kind of the same thing!! True love is when
+            🥗 Love is temporary, but biryani is forever!! 🥗 Roses are red, pizza is round,
+            love is sweet, but food is profound!! 🥗 You can’t buy happiness, but you
+            can order momos—and that’s kind of the same thing!! 🥗 True love is when
             someone shares their last bite of dessert.
           </p>
         </div>
