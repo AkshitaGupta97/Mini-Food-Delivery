@@ -67,9 +67,7 @@
 input::placeholder {
     font-size: 14px;
 }
-input:focus::placeholder {
-    color: transparent;
-}
+
 
 .nav-login{
     border-radius: 10px;

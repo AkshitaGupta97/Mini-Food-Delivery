@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css"
 import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { StoreContext } from "../context/StoreContext";
 
 function Navbar({setShowLogin}) {
 
     const [menu, setMenu] = useState("home");
     const [scrolled, setScrolled] = useState(false);
+
+    const {getTotalCartAmount} = useContext(StoreContext)
 
     useEffect(() => {
         const onScroll = () => {
@@ -33,7 +37,7 @@ function Navbar({setShowLogin}) {
                 </div>
                 <div className="nav-cart">
                     <Link to="/cart"><span className="material-icons-outlined">shopping_cart</span></Link>
-                    <div className="dot-cart"></div>
+                    <div className={getTotalCartAmount() === 0? "":"dot-cart"}></div>
                 </div>
                 <div className="nav-login">
                     <button onClick={() => setShowLogin(true)}> Sign in</button>

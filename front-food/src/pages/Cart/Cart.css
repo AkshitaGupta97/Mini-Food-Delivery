@@ -168,7 +168,7 @@
     flex: 1;
 }
 .cart-promocode p {
-    color: rgb(8, 82, 82);
+    color: rgb(215, 85, 66);
     font-size: 18px;
 }
 .div-promo {
@@ -220,6 +220,10 @@
         font-size: 13px;
     }
     .cart-items-item img { width: 64px; height: 64px }
+    .cart-promocode {
+        font-weight: 500;
+    }
+
 }
 
 @media (max-width: 450px) {

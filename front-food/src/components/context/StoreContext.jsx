@@ -21,6 +21,20 @@ const StoreContextProvider = (props) => {
         setCartItem((prev) => ({...prev, [itemId]: Math.max(0, prev[itemId]-1)}) );
     }
 
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for(const item in cartItem){  // we are using for-in loop, because cart-item is object and item will iterate over cartItem, and provide items one by one
+            if(cartItem[item] > 0){
+                let itemInfo = food_list.find((product) => product._id == item);
+                // if itemInfo exists (item found in food_list), add to total; otherwise skip
+                if(itemInfo){
+                    totalAmount += itemInfo.price * cartItem[item];
+                }
+            }
+        }
+        return totalAmount;
+    }
+
     useEffect(() => {
         console.log("cart item updated:", cartItem);
     }, [cartItem])
@@ -29,6 +43,7 @@ const StoreContextProvider = (props) => {
         food_list,
         cartItem, setCartItem,
         addToCart, removeFromCart,
+        getTotalCartAmount
         
     }
 

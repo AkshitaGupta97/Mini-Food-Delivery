@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../components/context/StoreContext";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
 
-  const {cartItem, food_list, removeFromCart} = useContext(StoreContext);
+  const {cartItem, food_list, removeFromCart, getTotalCartAmount} = useContext(StoreContext);
+
+  const navigate = useNavigate()
 
   return (
     <div className="cart">
@@ -29,7 +32,7 @@ function Cart() {
                     <p className="item-name">{item.name}</p>
                     <p>${item.price}</p>
                     <p>{cartItem[item._id]}</p>
-                    <p>${item.price * cartItem[item._id]}</p>
+                    <p>${Math.floor(item.price * cartItem[item._id])}</p>
                     <p onClick={()=>removeFromCart(item._id)} className="cross">X</p>
                   </div>
                   <hr />
@@ -45,19 +48,19 @@ function Cart() {
           <div>
             <div className="cart-total-details">
               <p>Subtotal</p>
-              <p>{0}</p>
+              <p>${Math.floor(getTotalCartAmount())}</p>
             </div>
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>${2}</p>
+              <p>${getTotalCartAmount()===0? 0 : 2}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>{0}</b>
+              <b>${getTotalCartAmount()=== 0? 0 : Math.floor(getTotalCartAmount() + 2)}</b>
             </div>
           </div>
-          <button>PROCEED TO CHECKOUT</button>
+          <button onClick={() => getTotalCartAmount()===0?"" : navigate("/order")}>PROCEED TO CHECKOUT</button>
         </div>
         <div className="cart-promocode">
           <div className="div-promo">

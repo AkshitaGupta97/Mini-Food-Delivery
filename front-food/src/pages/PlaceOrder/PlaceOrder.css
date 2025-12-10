@@ -1,0 +1,58 @@
+
+.place-order {
+    height: 100%;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    font-weight: 600;
+    /* make cart full width of the viewport and avoid horizontal overflow */
+    width: 96vw;
+    box-sizing: border-box;
+    padding: 0 16px;
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 20px;
+}
+.place-order-left {
+    width: 100%;
+    max-width: max(30%, 500px);
+}
+.place-order-left .title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: crimson;
+    border-bottom: 2px solid black;
+    border-radius: 6px;
+    text-align: center;
+    display: inline-block;
+
+}
+.place-order-left input {
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid gray;
+    outline: 1px solid tomato;
+    border-radius: 4px;
+
+}
+.place-order-left .multi-field {
+    display: flex;
+    gap: 12px;
+}
+.place-order-right {
+    width: 100%;
+    max-width: max(40%, 500px);
+}
+.place-order-right .cart-total {
+    margin-top: 20px;
+}
+.place-order-right button {
+    text-align: center;
+    background-color: crimson;
+}
+.place-order-right button:hover {
+    background-color: rgb(141, 7, 34);
+}
