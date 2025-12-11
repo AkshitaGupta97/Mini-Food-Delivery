@@ -18,6 +18,7 @@ connectDB();
 
 // api end-points
 app.use("/api/food", foodRouter)
+app.use(express.urlencoded({extended: true}));   // this will allow normal form-data
 
 app.get("/", (req, res) => {
     res.send("Call from backend, Api working")
