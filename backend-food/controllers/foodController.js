@@ -31,8 +31,23 @@ const addFood = async(req, res) => {   //- Declares an async function (because d
         console.log("error in food controller", error);
         res.json({success:false , message:"Error"})
     }
-
 }
-export {addFood}
+
+// we can create all new food
+const listFood = async(req, res) => {
+    try {
+        const foods = await foodModel.find({});
+        res.json({success: true, data: foods})
+    }   
+    catch(error){
+        console.log(error);
+        res.json({success:false, message:"error"})
+    }
+}
+
+
+
+
+export {addFood, listFood}
 
 

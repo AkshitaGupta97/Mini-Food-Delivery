@@ -19,6 +19,7 @@ connectDB();
 // api end-points
 app.use("/api/food", foodRouter)
 app.use(express.urlencoded({extended: true}));   // this will allow normal form-data
+app.use("/images", express.static('uploads')); // by this we can it from anywhere, as http://localhost:4000/images/1765467931689mahadev-krishna.png
 
 app.get("/", (req, res) => {
     res.send("Call from backend, Api working")
