@@ -1,14 +1,19 @@
 
-import foodModel from "../models/foodModels";
+import foodModel from "../models/foodModels.js";
 import fs from "fs"
 // fs is used for some operations as readFile, deleteFile, createfile
 
 
 // add food item
 
-const addFood = async(req, res) => {
+const addFood = async(req, res) => {   //- Declares an async function (because database operations are asynchronous).
+    //the request object (contains form data, uploaded files, etc.)
+    // the response object (used to send back JSON responses).
 
-    let image_filename = `${req.file.filename}`
+    //- Assumes the request contains an uploaded file (via something like Multer)
+    // - Extracts the filename of the uploaded image and stores it in image_filename
+
+    let image_filename = `${req.file.filename}`;
 
     const food = new foodModel({
         name: req.body.name,
@@ -17,8 +22,9 @@ const addFood = async(req, res) => {
         category: req.body.category,
         image: image_filename
     })
+    // save to database
     try {
-        await food.save();
+        await food.save(); //inserts the new food document into MongoDB.
         res.json({success:true, message: "Food Added"})
     }
     catch(error){
@@ -27,7 +33,6 @@ const addFood = async(req, res) => {
     }
 
 }
-
 export {addFood}
 
 
