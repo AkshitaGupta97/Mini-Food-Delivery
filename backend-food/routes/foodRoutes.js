@@ -1,6 +1,6 @@
 // Express router for food-related endpoints
 import express from "express"
-import { addFood, listFood } from "../controllers/foodController.js"
+import { addFood, listFood, removeFood } from "../controllers/foodController.js"
 import multer from "multer"
 
 const foodRouter = express.Router(); // creates a modular router instance
@@ -23,6 +23,8 @@ const upload = multer({ storage: storage })
 foodRouter.post("/add", upload.single("image"), addFood);
 
 foodRouter.get("/list", listFood)
+
+foodRouter.post("/remove", removeFood);
 
 // Export the router so it can be mounted in the main app (for example: app.use('/api/food', foodRouter))
 export default foodRouter;

@@ -33,7 +33,7 @@ const addFood = async(req, res) => {   //- Declares an async function (because d
     }
 }
 
-// we can create all new food
+// we can create/add all new food
 const listFood = async(req, res) => {
     try {
         const foods = await foodModel.find({});
@@ -45,9 +45,24 @@ const listFood = async(req, res) => {
     }
 }
 
+// we can remove food item
+const removeFood = async(req, res) => {
+    try{
+        const food = await foodModel.findById(req.body.id);
+        fs.unlink(`uploads/${food.image}`, () => {})
+
+        await foodModel.findByIdAndDelete(req.body.id);
+        res.json({sucess:true, message:"food item is removed"})
+
+    }
+    catch(error){
+        console.log(error);
+        res.json({success:false, message:"error in deleting food item"})
+    }
+}
 
 
 
-export {addFood, listFood}
+export {addFood, listFood, removeFood}
 
 
