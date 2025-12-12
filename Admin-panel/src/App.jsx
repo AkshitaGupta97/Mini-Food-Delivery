@@ -1,13 +1,18 @@
 
 import './App.css'
+import Navbar from './components/Navbar/Navbar'
+import Sidebar from './components/sidebar/Sidebar'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      
-    </>
+    <div>
+      <Navbar />
+      <hr />
+      <div className="app-content">
+        <Sidebar />
+      </div>
+    </div>
   )
 }
 

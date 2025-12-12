@@ -24,3 +24,7 @@ hr {
   background-color: antiquewhite;
 }
 
+.app-content {
+  display: flex;
+  
+}
