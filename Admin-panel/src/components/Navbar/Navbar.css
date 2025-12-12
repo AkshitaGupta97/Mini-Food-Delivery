@@ -25,6 +25,16 @@
     font-style: normal;
     color: rgb(39, 39, 39);
 }
+.navbar .admin{
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: crimson;
+    text-align: center;
+     border-bottom: 2px solid black;
+    border-radius: 8px;
+}
+
 .navbar .profile span {
     font-weight: 800;
     font-size: 32px;

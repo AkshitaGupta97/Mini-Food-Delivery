@@ -8,7 +8,7 @@ function Add() {
             <div className="add-image-upload ">
                 <p>Upload Image</p>
                 <label htmlFor="image">
-                    <p><span class="material-symbols-outlined">upload</span></p>
+                    <p><span class=" upload material-symbols-outlined">upload</span></p>
                 </label>
                 <input type="file" id='image' hidden required />
             </div>
