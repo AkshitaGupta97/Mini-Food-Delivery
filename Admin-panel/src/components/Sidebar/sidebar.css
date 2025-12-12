@@ -27,7 +27,11 @@
 
 .sidebar-option:hover {
   background-color: #f2e5e5;
-  color: #c53905;
+  color: #c9552a;
+  border-left-color: #ff6b35;
+}
+.sidebar-options .active {
+  background-color: #d8d2d1;
   border-left-color: #ff6b35;
 }
 

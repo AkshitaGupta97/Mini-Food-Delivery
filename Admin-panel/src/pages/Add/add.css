@@ -10,13 +10,79 @@
 .add form {
     gap: 20px;
 }
-.add-image-upload .upload{
-    width: 160px;
-    border: 2px solid orange;
+.add-image-upload label p{
+    width: 120px;
+    border: 2px solid goldenrod;
     border-radius: 4px;
-    padding: 12px 6px;
+    padding: 10px 6px;
+    cursor: pointer;
+}
+.add-image-upload label p:hover {
+    border: 2px solid orange;
+}
+.add-image-upload .upload {
+    font-size: 32px;
+}
+.add-image-upload img {
+    width: 100px;
+    height: 100px;
+}
+.add-image-upload label p .image-p {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    color: blue;
+}
+.add-product-name, .add-product-description {
+    width: max(40%, 280px);
 }
 
+.add-product-name input, .add-product-description textarea {
+    padding: 12px;
+    border: 2px solid goldenrod;
+    border-radius: 6px;
+}
+.add-category-price {
+    display: flex;
+    gap: 30px;
+}
+.add-category select , .add-price input {
+    width: 120px;
+    padding: 8px;
+    border: 2px solid goldenrod;
+    border-radius: 6px;
 
+}
+.add-button {
+    max-width: 120px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    background-color: black;
+    border-radius: 6px;
+    color: wheat;
+    font-weight: 600;
+}
+.add-button:hover {
+    background-color: rgb(31, 28, 28);
+    transform: translateY(-4px);
+}
+
+@media (max-width: 560px){
+    .add {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .add form {
+        gap: 12px;
+    }
+    .add-image-upload label p {
+        width: 100px;
+    }
+    .add-product-name, .add-product-description {
+        width: max(30%, 200px);
+    }
+
+}
 
 
