@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <div className="navbar">
         <Link to="/"><div className="logo">Foodie<i>Hub</i></div></Link>
-        <p className="profile"><span class="material-symbols-outlined">artist</span></p>
+        <p className="profile"><span className="material-symbols-outlined">deployed_code_account</span></p>
     </div>
   )
 }

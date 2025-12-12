@@ -1,3 +1,43 @@
 .navbar {
-    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4%;
+    background-color: #c4c0c0;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0; /* occupy full width */
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 240ms ease, box-shadow 240ms ease, padding 240ms ease;
 }
+.logo {
+    color: #ff6b35;
+    font-size: 32px;
+    font-weight: 800;
+}
+.logo i {
+    font-style: normal;
+    color: rgb(39, 39, 39);
+}
+.navbar .profile span {
+    font-weight: 800;
+    font-size: 32px;
+    cursor: pointer;
+}
+.navbar .profile span:hover {
+    background-color: #150b08;
+    padding: 4px 6px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 500;
+}
+
+
+
+

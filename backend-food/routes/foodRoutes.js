@@ -1,6 +1,6 @@
 // Express router for food-related endpoints
 import express from "express"
-import { addFood, listFood, removeFood } from "../controllers/foodController.js"
+import { addFood } from "../controllers/foodController"
 import multer from "multer"
 
 const foodRouter = express.Router(); // creates a modular router instance
@@ -20,15 +20,6 @@ const storage = multer.diskStorage({
 // Creates an upload handler using the storage rules defined above
 const upload = multer({ storage: storage }) 
 
-foodRouter.post("/add", upload.single("image"), addFood);
-
-foodRouter.get("/list", listFood)
-
-foodRouter.post("/remove", removeFood);
-
-// Export the router so it can be mounted in the main app (for example: app.use('/api/food', foodRouter))
-export default foodRouter;
-
 /*
   Routes
   - POST /add : expects a multipart/form-data request with a single file field named "image"
@@ -36,3 +27,7 @@ export default foodRouter;
     The `addFood` controller should read `req.body` for other fields (name, price, category)
     and `req.file` for the uploaded image path/filename.
 */
+foodRouter.post("/add", upload.single("image"), addFood);
+
+// Export the router so it can be mounted in the main app (for example: app.use('/api/food', foodRouter))
+export default foodRouter;

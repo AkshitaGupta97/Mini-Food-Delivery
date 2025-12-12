@@ -10,7 +10,8 @@
 
 body {
   height: 100vh;
-  background-color: black;
+  max-width: 98%;
+  padding: 0 4px;
 }
 
 a{
@@ -20,11 +21,11 @@ a{
 
 hr {
   border: none;
-  height: 2pc;
-  background-color: antiquewhite;
+  height: 2px;
+  background-color: bisque;
 }
 
 .app-content {
   display: flex;
-  
+
 }
