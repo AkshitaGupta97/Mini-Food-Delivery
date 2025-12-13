@@ -38,6 +38,9 @@
 }
 
 .add-product-name input, .add-product-description textarea {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(76, 74, 74);
     padding: 12px;
     border: 2px solid goldenrod;
     border-radius: 6px;

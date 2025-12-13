@@ -1,35 +1,46 @@
 
 import foodModel from "../models/foodModels.js";
 import fs from "fs"
+import mongoose from "mongoose";
 // fs is used for some operations as readFile, deleteFile, createfile
 
 
 // add food item
 
-const addFood = async(req, res) => {   //- Declares an async function (because database operations are asynchronous).
-    //the request object (contains form data, uploaded files, etc.)
-    // the response object (used to send back JSON responses).
+const addFood = async(req, res) => {
+    // Check if file was uploaded
+    if (!req.file) {
+        console.error("No image file provided");
+        return res.json({ success: false, message: "Image is required" });
+    }
 
-    //- Assumes the request contains an uploaded file (via something like Multer)
-    // - Extracts the filename of the uploaded image and stores it in image_filename
-
+    // Extract the filename of the uploaded image
     let image_filename = `${req.file.filename}`;
 
+    // Cast/normalize incoming values
+    const priceValue = Number(req.body.price);
+
+    // Create new food item with form data and image filename
     const food = new foodModel({
         name: req.body.name,
         description: req.body.description,
-        price: req.body.price,
+        price: priceValue,
         category: req.body.category,
         image: image_filename
     })
-    // save to database
+
+    // Save to database
     try {
-        await food.save(); //inserts the new food document into MongoDB.
-        res.json({success:true, message: "Food Added"})
+        // Log mongoose connection state for debug (0 = disconnected, 1 = connected)
+        console.log("Mongoose readyState:", mongoose.connection.readyState);
+
+        await food.save();
+        console.log("Food item added successfully:", image_filename);
+        res.json({ success: true, message: "Food Added" })
     }
-    catch(error){
-        console.log("error in food controller", error);
-        res.json({success:false , message:"Error"})
+    catch(error) {
+        console.error("Error saving food to database:", error);
+        res.json({ success: false, message: "Error adding food: " + (error.message || "Unknown") })
     }
 }
 

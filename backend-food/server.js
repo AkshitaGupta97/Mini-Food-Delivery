@@ -8,24 +8,35 @@ import foodRouter from "./routes/foodRoutes.js";
 const app = express();
 const port = 4000
 
-// middleware
-app.use(express.json()) // using this middleware, request is parsed between frontend and backend
-app.use(cors()) // can access backend from frontend
+// middleware (order matters: json parsing before routes)
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(cors())
+app.use("/images", express.static('uploads'))
 
-//db connection
-connectDB();
-
-// api end-points
+// api endpoints
 app.use("/api/food", foodRouter)
-app.use(express.urlencoded({extended: true}));   // this will allow normal form-data
-app.use("/images", express.static('uploads')); // by this we can it from anywhere, as http://localhost:4000/images/1765467931689mahadev-krishna.png
 
 app.get("/", (req, res) => {
     res.send("Call from backend, Api working")
 })
 
-// run express
-app.listen(port, () => {
-    console.log(`server is running on port -> http://localhost:${port}`);
-})
+// start server and connect to database
+const startServer = async () => {
+    try {
+        // Connect to database first
+        await connectDB();
+        console.log("✓ Database connection initialized");
+        
+        // Then start the server
+        app.listen(port, () => {
+            console.log(`✓ Server running on http://localhost:${port}`);
+        });
+    } catch(error) {
+        console.error("✗ Failed to start server:", error);
+        process.exit(1);
+    }
+} 
+
+startServer();
 

@@ -1,8 +1,11 @@
 
 import { useState } from 'react';
 import './add.css'
+import axios from "axios"
 
 function Add() {
+
+    const url = "http://localhost:4000";
 
     const [image, setImage] = useState(false);
     const [data, setData] = useState({
@@ -22,11 +25,39 @@ function Add() {
     // the primary use FormData is native supports of file input as in (<input type="file" />), which is used to compile data in key value pair.
     const onSubmitHandler = async (event) => {
         event.preventDefault();
+        
+        // Validate that image is selected
+        if (!image) {
+            alert("Please select an image");
+            return;
+        }
+
         const formData = new FormData();
         formData.append("name", data.name)
         formData.append("description", data.description)
         formData.append("price", data.price)
         formData.append("category", data.category)
+        formData.append("image", image)
+
+        try {
+            const response = await axios.post(`${url}/api/food/add`, formData);
+            if(response.data.success) {
+                alert("Food item added successfully!");
+                setData({
+                    name:"",
+                    description:"",
+                    price:"",
+                    category: "Salad"
+                })
+                setImage(false)
+            } else {
+                alert("Error: " + (response.data.message || "Failed to add food"))
+                console.error("Server response:", response.data)
+            }
+        } catch(error) {
+            alert("Error adding food: " + error.message)
+            console.error("Request error:", error)
+        }
     }
 
   return (

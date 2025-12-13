@@ -5,15 +5,26 @@ dotenv.config();
 
 export const connectDB = async() => {
     // Use MongoDB URI from environment variables or fallback to local MongoDB
-    const mongoURI = process.env.MONGO_URI || "mongodb+srv://gungunakshita37gupta973_db_user:mongo5678database@cluster0.eqxxxzn.mongodb.net/food-delivery";
+   // const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/food-delivery";
     
-    try {
-        await mongoose.connect(mongoURI);
-        console.log("✓ Database connected successfully");
-    } catch(error) {
-        console.error("✗ Database connection failed:", error.message);
-        // Server continues even if DB connection fails
-    }
 
+  /* try {
+    const mongoURI = "mongodb+srv://gungunakshita37gupta973_db_user:food123@cluster0.eqxxxzn.mongodb.net/food-delivery";
+    await mongoose.connect(mongoURI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+   }
+    catch(error){
+        console.error("✗ MongoDB connection failed:", error.message);
+        process.exit(1); // Exit process if DB connection fails
+    }
+    */
+
+  await mongoose.connect('mongodb+srv://gungunakshita37gupta973_db_user:food123@cluster0.eqxxxzn.mongodb.net/food-delivery')
+   .then(() => console.log('✓ MongoDB connected successfully'))
+   .catch((error) => console.error("✗ MongoDB connection failed:", error.message));
+    
+   
 }
 
