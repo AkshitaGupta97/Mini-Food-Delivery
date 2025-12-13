@@ -1,7 +1,7 @@
 
 import './order.css'
 
-function Order() {
+function Order({url}) {
   return (
     <div>Order</div>
   )

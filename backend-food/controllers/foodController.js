@@ -3,8 +3,6 @@ import foodModel from "../models/foodModels.js";
 import fs from "fs"
 import mongoose from "mongoose";
 // fs is used for some operations as readFile, deleteFile, createfile
-
-
 // add food item
 
 const addFood = async(req, res) => {
@@ -63,7 +61,7 @@ const removeFood = async(req, res) => {
         fs.unlink(`uploads/${food.image}`, () => {})
 
         await foodModel.findByIdAndDelete(req.body.id);
-        res.json({sucess:true, message:"food item is removed"})
+        res.json({success:true, message:"food item is removed"})
 
     }
     catch(error){
@@ -72,8 +70,4 @@ const removeFood = async(req, res) => {
     }
 }
 
-
-
 export {addFood, listFood, removeFood}
-
-
