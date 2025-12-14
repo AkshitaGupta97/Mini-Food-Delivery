@@ -116,6 +116,50 @@ input::placeholder {
     }
 }
 
+
+.navbar-profile {
+    position: relative;
+    cursor: pointer;
+}
+.navbar-profile .icons {
+    font-size: 30px;
+    cursor: pointer;
+}
+.navbar-profile .icons:hover {
+    background-color: burlywood;
+    padding: 4px;
+    border-radius: 50%;
+}
+.nav-profile-dropdown {
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 2;
+}
+.navbar-profile:hover .nav-profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #faf4cb;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border: 1px solid #ff6b35;
+    outline: 2px solid white;
+}
+.nav-profile-dropdown .list-span {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(244, 76, 115);
+}
+.nav-profile-dropdown .list-span:hover {
+    color: rgb(118, 33, 3);
+}
+.nav-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 @media (max-width: 1050px){
     .logo {
         font-size: 28px;
@@ -137,6 +181,22 @@ input::placeholder {
     .nav-login {
         font-size: 14px;
         padding: 3px 6px;
+    }
+    /* navbar-profile adjustments for medium screens */
+    .navbar-profile {
+        display: flex;
+        align-items: center;
+    }
+    .navbar-profile .icons {
+        font-size: 24px;
+    }
+    .nav-profile-dropdown {
+        right: 12px;
+        top: 48px;
+        width: 180px;
+    }
+    .nav-profile-dropdown .list-span {
+        font-size: 15px;
     }
 }
 
@@ -162,7 +222,7 @@ input::placeholder {
         font-size: 12px;
         padding: 2px 4px;
     }
-}   
+}  
 
 @media (max-width: 768px) {
     .navbar-menu {
@@ -174,6 +234,9 @@ input::placeholder {
         font-weight: 600;
         padding: 2px 4px;
     }
+     .navbar-profile .icons {
+        font-size: 18px;
+    }
     .nav-search input {
         width: 80px;
     }
@@ -183,13 +246,78 @@ input::placeholder {
         width: 80px;
     }
 }
-
+@media (max-width: 800px){
+    .navbar-profile .icons {
+        font-size: 18px;
+    }
+    .navbar-profile .icons:hover {
+        padding: 2px;
+    }
+    .navbar-profile:hover .nav-profile-dropdown {
+        gap: 2px;
+        padding: 22px 24px;
+    }
+    .nav-profile-dropdown .list-span {
+        font-size: 16px;
+    }
+    .nav-profile-dropdown li {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+}
 /* extra small screens: compact navbar */
 @media (max-width: 360px) {
     .logo { font-size: 18px }
     .navbar { padding: 8px }
     .nav-right { gap: 8px }
     .nav-cart { font-size: 20px }
+}
+
+/* Responsive tweaks for profile dropdown on small screens */
+@media (max-width: 600px) {
+    .navbar-profile {
+        /* ensure profile and dropdown align nicely in the right area */
+        display: flex;
+        align-items: center;
+        z-index: 1200;
+    }
+
+    .navbar-profile .icons {
+        font-size: 20px;
+    }
+
+    /* make dropdown sit below the profile icon and have a fixed compact width */
+    .nav-profile-dropdown {
+        position: absolute;
+        right: 8px;
+        top: 46px;
+        width: 160px;
+        display: none; /* stays hidden until hover/tap */
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .navbar-profile:hover .nav-profile-dropdown,
+    .navbar-profile:focus-within .nav-profile-dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px 12px;
+    }
+
+    .nav-profile-dropdown .list-span {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 420px) {
+    .nav-profile-dropdown {
+        width: 140px;
+        right: 6px;
+        top: 44px;
+        padding: 8px 10px;
+    }
+    .navbar-profile .icons { font-size: 18px }
 }
 
 

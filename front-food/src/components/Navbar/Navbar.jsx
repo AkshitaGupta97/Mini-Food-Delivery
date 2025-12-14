@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
 
@@ -8,8 +8,15 @@ function Navbar({setShowLogin}) {
 
     const [menu, setMenu] = useState("home");
     const [scrolled, setScrolled] = useState(false);
+    const navigate = useNavigate()
 
-    const {getTotalCartAmount} = useContext(StoreContext)
+    const {getTotalCartAmount, token, setToken} = useContext(StoreContext);
+
+    const Logout = () => {
+        localStorage.removeItem("token");
+        setToken("");
+        navigate("/");
+    }
 
     useEffect(() => {
         const onScroll = () => {
@@ -27,7 +34,7 @@ function Navbar({setShowLogin}) {
             <ul className="navbar-menu">
                 <Link to="/" onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>home</Link>
                 <a href="#explore-menu" onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""}>menu</a>
-                <a href="#app-download" onClick={() => setMenu("mobile-app")} className={menu === "mobile-app" ? "active" : ""}>mobile-app</a>
+                <a href="#app-download" onClick={() => setMenu("mobile-app")} className={menu === "mobile-app" ? "active" : ""}>mobile</a>
                 <a href="#footer" onClick={() => setMenu("contact")} className={menu === "contact" ? "active" : ""}>contact-us</a>
             </ul>
             <div className="nav-right">
@@ -39,9 +46,21 @@ function Navbar({setShowLogin}) {
                     <Link to="/cart"><span className="material-icons-outlined">shopping_cart</span></Link>
                     <div className={getTotalCartAmount() === 0? "":"dot-cart"}></div>
                 </div>
-                <div className="nav-login">
-                    <button onClick={() => setShowLogin(true)}> Sign in</button>
-                </div>
+                {
+                    ! token ? 
+                    <div className="nav-login">
+                        <button onClick={() => setShowLogin(true)}> Sign in</button>
+                    </div>
+                    : <div className="navbar-profile">
+                        <p><span className=" icons material-symbols-outlined">artist</span></p>
+                        <ul className="nav-profile-dropdown">
+                            <li><p><span className="icons material-symbols-outlined">shopping_bag_speed</span></p><span className="list-span">Orders</span></li>
+                            <hr />
+                            <li onClick={Logout}><p><span className="icons material-symbols-outlined">account_circle_off</span></p><span className="list-span">Logout</span></li>
+                        </ul>
+                    </div>
+                }
+                
             </div>
 
         </div>

@@ -101,5 +101,24 @@ p {
         padding: 8px 12px;
     }
 }
-
+@media (max-width: 520px) {
+    .login-popup-container {
+        width: max(20vw,  360px);
+        padding: 10px 14px;
+        gap: 10px;
+    }
+    .login-popup-title h2 {
+        font-size: 16px;
+    }
+    .sign-login {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    .sign-login{
+        font-size: 16px;
+        font-weight: 600;
+        
+        padding: 8px 12px;
+    }
+}
 
