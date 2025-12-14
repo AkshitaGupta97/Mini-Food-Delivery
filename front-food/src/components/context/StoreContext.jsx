@@ -1,6 +1,7 @@
 
+import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { food_list } from "../../assets/MenuAssets";
+//import { food_list } from "../../assets/MenuAssets";  //as this food_list is from frontend, so we have made it comment, beacuse we need to fetch data from backend
 // createContext is used to create a Context object in React, which allows for sharing state across components without prop drilling.
 export const StoreContext = createContext(null);
 
@@ -10,6 +11,9 @@ const StoreContextProvider = (props) => {
 
     const url = "http://localhost:4000/";
     const [token, setToken] = useState("");
+
+    // for  data/food from backend
+    const [food_list, setFoodlist] = useState([]);
     
     const addToCart = (itemId) => {
         if(!cartItem[itemId]){ // if the itemId does not exist in cartItem, then add it with a quantity of 1
@@ -38,12 +42,26 @@ const StoreContextProvider = (props) => {
         return totalAmount;
     }
 
+    // fetch fool_list from backend
+    const fetchFoodList = async () => {
+        const response = await axios.get(url+"api/food/list");
+        setFoodlist(response.data.data);       
+    }
+
+    // by using this useEffect(), if we reload the page we won't signout from page.
     useEffect(() => {
-        console.log("cart item updated:", cartItem);
-    }, [cartItem])
+        async function loadData() {
+            await fetchFoodList();
+
+            if(localStorage.getItem("token")){
+                setToken(localStorage.getItem("token"));
+            }
+        }
+        loadData();
+    }, [])
 
     const contextValue = {
-        food_list,
+       food_list,   
         cartItem, setCartItem,
         addToCart, removeFromCart,
         getTotalCartAmount,

@@ -235,7 +235,7 @@ input::placeholder {
         padding: 2px 4px;
     }
      .navbar-profile .icons {
-        font-size: 18px;
+        font-size: 24px;
     }
     .nav-search input {
         width: 80px;
@@ -248,7 +248,7 @@ input::placeholder {
 }
 @media (max-width: 800px){
     .navbar-profile .icons {
-        font-size: 18px;
+        font-size: 24px;
     }
     .navbar-profile .icons:hover {
         padding: 2px;
@@ -284,7 +284,7 @@ input::placeholder {
     }
 
     .navbar-profile .icons {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     /* make dropdown sit below the profile icon and have a fixed compact width */

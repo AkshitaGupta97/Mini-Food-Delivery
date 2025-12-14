@@ -3,6 +3,7 @@ import "./Navbar.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
+import {toast} from 'react-toastify'
 
 function Navbar({setShowLogin}) {
 
@@ -16,6 +17,7 @@ function Navbar({setShowLogin}) {
         localStorage.removeItem("token");
         setToken("");
         navigate("/");
+        toast.success("You have loggedout");
     }
 
     useEffect(() => {
@@ -47,7 +49,7 @@ function Navbar({setShowLogin}) {
                     <div className={getTotalCartAmount() === 0? "":"dot-cart"}></div>
                 </div>
                 {
-                    ! token ? 
+                    !token ? 
                     <div className="nav-login">
                         <button onClick={() => setShowLogin(true)}> Sign in</button>
                     </div>

@@ -86,6 +86,7 @@ function Add({url}) {
                         <option value="Sandwich">Sandwich</option>
                         <option value="Cake">Cake</option>
                         <option value="Pure veg">Pure Veg</option>
+                         <option value="Non-veg">Non-Veg</option>
                         <option value="Pasta">Pasta</option>
                         <option value="Noodles">Noodles</option>
                     </select>

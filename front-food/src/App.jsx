@@ -7,8 +7,11 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Footer from "./components/Footer/Footer"
 import { useState } from "react"
 import LoginPop from "./components/LoginPopup/LoginPop"
+import { ToastContainer } from 'react-toastify';
 
 function App() {
+
+  <ToastContainer />
 
   const [showLogin, setShowLogin] = useState(false)
 
