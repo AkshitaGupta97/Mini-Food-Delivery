@@ -15,17 +15,27 @@ const StoreContextProvider = (props) => {
     // for  data/food from backend
     const [food_list, setFoodlist] = useState([]);
     
-    const addToCart = (itemId) => {
+    const addToCart = async (itemId) => {
         if(!cartItem[itemId]){ // if the itemId does not exist in cartItem, then add it with a quantity of 1
             setCartItem((prev) => ({...prev, [itemId]: 1}) );
         }
         else {
             setCartItem((prev) => ({...prev, [itemId]: prev[itemId] +1}));
         }
+        if(token){
+            await axios.post(url+"api/cart/add",
+                 {itemId}, 
+                 {headers:{Authorization: `Bearer ${token}`}});
+        }
     }
 
-    const removeFromCart = (itemId) => { // decrease the quantity of the item with itemId by 1, ensuring it doesn't go below 0
+    const removeFromCart = async (itemId) => { // decrease the quantity of the item with itemId by 1, ensuring it doesn't go below 0
         setCartItem((prev) => ({...prev, [itemId]: Math.max(0, prev[itemId]-1)}) );
+        if(token){
+            await axios.post(url+"api/cart/remove", 
+                {itemId}, 
+                {headers:{Authorization:` Bearer ${token}`}});
+        }
     }
 
     const getTotalCartAmount = () => {
@@ -79,3 +89,8 @@ const StoreContextProvider = (props) => {
 }
 export default StoreContextProvider;
 
+/*
+    - Bearer token = a security token that proves the client (browser/app) is authorized.
+    This request includes a token. Whoever presents this token is the bearer of certain rights or access.
+    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6...
+ */

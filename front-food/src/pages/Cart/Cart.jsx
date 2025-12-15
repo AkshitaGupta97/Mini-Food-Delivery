@@ -26,8 +26,8 @@ function Cart() {
           food_list.map((item, index) => {
             if(cartItem[item._id] > 0){
               return(
-                <div className="last-part">
-                  <div key={index} className="cart-items-title cart-items-item">
+                <div key={index} className="last-part">
+                  <div className="cart-items-title cart-items-item">
                     <img src={url+"images/"+item.image} alt={item.name} />  {/* src={item.image} */}
                     <p className="item-name">{item.name}</p>
                     <p>${item.price}</p>
