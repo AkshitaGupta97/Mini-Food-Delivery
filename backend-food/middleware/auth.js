@@ -1,32 +1,40 @@
 import jwt from "jsonwebtoken"
 
 //- Defines an asynchronous middleware function that takes the usual Express parameters: req, res, next
-const authMiddleware = async (req, res, next) => {
-    // Accept token either in `Authorization: Bearer <token>` or `token` header
-    const authHeader = req.headers.authorization || req.headers.token; // It first checks if the request has an authorized header
-    let token = authHeader;
-    if (!token) {
-        return res.status(401).json({ success: false, message: "Not authorized - token missing" });
-    }
-    // If header is like "Bearer <token>", extract the token part
-    if (typeof token === 'string' && token.startsWith('Bearer ')) {  // - This code checks if the header starts with "Bearer"
-        token = token.split(' ')[1];  // if yes, it splits the string by space and takes the second part  / Bearer abc123 -> abc123
-    }
 
-    try {
-        const token_decode = jwt.verify(token, process.env.JWT_SECRET);
-        // Attach user info safely. Don't assume req.body exists; use req.user and req.userId
-        req.user = req.user || {}; 
-        // token payload may contain id, _id or userId depending on generation
-        req.user.id = token_decode.id || token_decode._id || token_decode.userId;
-        // convenience top-level property
-        req.userId = req.user.id;
-        return next();
-    } catch (error) {
-        console.error('Auth error:', error.message || error);
-        return res.status(401).json({ success: false, message: 'Invalid or expired token' });
+const authMiddleware = async (req, res, next) => {
+    const {token} = req.headers;
+    if(!token){
+        return res.json({success:false, message:"Not Authorized Login Again"});
+    }
+    try{
+        const token_decode = jwt.verify(token,process.env.JWT_SECRET);
+        req.body.userId =  token_decode.id;
+        next();
+    }
+    catch(error){
+        console.log(error);
+        res.json({success:false, message:"Error"});
     }
 }
+
+
+/*const authMiddleware = async (req, res, next) => {
+    try {
+        const {token} = req.headers.authorization;
+        if(!authHeader || !authHeader.startsWith("Bearer")){
+            return res.json({success:false, message:"Not Authorized, Login Again"});
+        }
+        const token = authHeader.replace("Bearer", "").trim(""); // Beares Token
+        const token_decode = jwt.verify(token, process.env.JWT_SECRET);
+        req.body.userId = token_decode.id;
+        next();
+    } catch (error) {
+        console.log(error);
+        return res.json({success:false, message:" Authantication error"})
+    }
+}
+    */
 
 export default authMiddleware;
 

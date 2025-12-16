@@ -24,8 +24,9 @@ const StoreContextProvider = (props) => {
         }
         if(token){
             await axios.post(url+"api/cart/add",
-                 {itemId}, 
-                 {headers:{Authorization: `Bearer ${token}`}});
+                {itemId}, 
+                {headers:{token}}  
+            );                
         }
     }
 
@@ -34,7 +35,8 @@ const StoreContextProvider = (props) => {
         if(token){
             await axios.post(url+"api/cart/remove", 
                 {itemId}, 
-                {headers:{Authorization:` Bearer ${token}`}});
+                {headers:{token}}  
+            ); 
         }
     }
 
@@ -78,7 +80,6 @@ const StoreContextProvider = (props) => {
         url, token, setToken
         
     }
-
 
     return(
         <StoreContext.Provider value={contextValue}>
