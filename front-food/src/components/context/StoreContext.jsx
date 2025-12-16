@@ -60,6 +60,12 @@ const StoreContextProvider = (props) => {
         setFoodlist(response.data.data);       
     }
 
+    const loadCartData = async(token) => {
+        const response = await axios.post(url+"api/cart/get", {} , {headers: {token}}); // {} -> we are passing empty object, as to hit the getCart api we need not send body.
+        // and we save the cart item in a variable in setCaerItem
+        setCartItem(response.data.cartData);
+    }
+
     // by using this useEffect(), if we reload the page we won't signout from page.
     useEffect(() => {
         async function loadData() {
@@ -67,6 +73,7 @@ const StoreContextProvider = (props) => {
 
             if(localStorage.getItem("token")){
                 setToken(localStorage.getItem("token"));
+                await loadCartData(localStorage.getItem("token"));
             }
         }
         loadData();

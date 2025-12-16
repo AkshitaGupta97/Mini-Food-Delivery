@@ -6,6 +6,7 @@ import foodRouter from "./routes/foodRoutes.js";
 import userRouter from "./routes/userRoute.js";
 import 'dotenv/config'
 import cartRouter from "./routes/cartRoute.js";
+import orderRouter from "./routes/orderRoute.js";
 
 // app config
 const app = express();
@@ -23,6 +24,8 @@ app.use("/api/user", userRouter);
 app.use("/api/food", foodRouter)
 // api for cart
 app.use("/api/cart", cartRouter);
+// api for order
+app.use("/api/order", orderRouter);
 
 app.get("/", (req, res) => {
     res.send("Call from backend, Api working")
