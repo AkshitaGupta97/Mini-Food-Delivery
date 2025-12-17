@@ -56,3 +56,18 @@
 .place-order-right button:hover {
     background-color: rgb(141, 7, 34);
 }
+
+@media (max-width:768px){
+    .place-order {
+        font-weight: 600;
+        /* make cart full width of the viewport and avoid horizontal overflow */
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .place-order input {
+        font-size: 500;
+    }
+}
+
