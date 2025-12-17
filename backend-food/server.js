@@ -16,7 +16,7 @@ const port = 4000
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
-app.use("/images", express.static('uploads'))
+app.use("/images", express.static('uploads')) // - This middleware serves static files (like images, CSS, JS, PDFs) from the given folder. upload is folder name
 
 // for user
 app.use("/api/user", userRouter);

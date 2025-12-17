@@ -5,10 +5,12 @@ import multer from "multer"
 
 const foodRouter = express.Router(); // creates a modular router instance
 
+//- Multer is a middleware for handling multipart/form-data (used for file uploads). - diskStorage lets you control where and how files are stored on disk
+
 const storage = multer.diskStorage({
     destination: "uploads",  // uploads - folder where file is saved
     filename: (req, file, cb) => {
-        return cb(null, `${Date.now()}${file.originalname}`)
+        return cb(null, `${Date.now()}${file.originalname}`)  //  adds a unique timestamp to avoid overwriting files with the same name. keeps the original file name. as 124455667cat.png
     }
 })
 
@@ -30,6 +32,7 @@ export default foodRouter;
   Multer storage configuration:
   - destination: folder where uploaded files will be stored (relative to project root)
   - filename: function to determine the saved filename with timestamp + original filename
+  
 */
 
 /*

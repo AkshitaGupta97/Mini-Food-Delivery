@@ -45,14 +45,24 @@ const addFood = async(req, res) => {
 // we can create/add all new food
 const listFood = async(req, res) => {
     try {
-        const foods = await foodModel.find({});
-        res.json({success: true, data: foods})
+        const foods = await foodModel.find({}); // find({}) means fetches all the documents from the foodModel, with no filter.
+        res.json({success: true, data: foods}) //  contains the array of food documents retrieved from MongoDB.
     }   
     catch(error){
         console.log(error);
         res.json({success:false, message:"error"})
     }
 }
+/*
+    {
+        "success": true,
+        "data": [
+            { "name": "Pizza", "price": 10 },
+            { "name": "Burger", "price": 5 },
+            { "name": "Pasta", "price": 8 }
+        ]
+    }
+ */
 
 // we can remove food item
 const removeFood = async(req, res) => {

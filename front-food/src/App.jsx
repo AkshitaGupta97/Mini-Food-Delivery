@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer"
 import { useState } from "react"
 import LoginPop from "./components/LoginPopup/LoginPop"
 import { ToastContainer } from 'react-toastify';
+import Verify from "./components/verify/verify"
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/order' element={<PlaceOrder />} />
+          <Route path="/verify" element={<Verify />} />
         </Routes>
       </div>
       <Footer />

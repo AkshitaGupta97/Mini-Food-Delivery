@@ -3,7 +3,7 @@ import userModel from "../models/userModels.js"
 // add items to user cart
 const addToCart = async (req, res) => {
     try {
-        let userData = await userModel.findById(req.body.userId); 
+        let userData = await userModel.findById(req.body.userId); // userId comes from the JSON body sent by the frontend
         let cartData = await userData.cartData || {};
         if(!cartData[req.body.itemId]){  // if the user want to add product in cart with itemId, and with that itemId there is no entry in cart, in that case it will create a new entry.
             cartData[req.body.itemId] = 1;
@@ -21,7 +21,12 @@ const addToCart = async (req, res) => {
         res.json({success:false, message:"Error"});
     }
 }
+/*
+- Frontend provides userId → tells backend which user is acting.
+- Backend uses userModel with that userId → fetches the actual user document from MongoDB to read/update their cart.
+- Without querying userModel, you’d only have the raw userId string, not the user’s data.
 
+*/
 
 // remove item from user cart
 /**
@@ -51,6 +56,10 @@ const removeFromCart = async (req, res) => {
         res.json({success:false, message:"Error"})
     }
 }
+/*
+- First argument: req.body.userId → the MongoDB _id of the user.
+- Second argument: { cartData } → the new cart data object you want to save.
+*/
 
 // fetch user cart data
 const getCart = async (req, res) => {

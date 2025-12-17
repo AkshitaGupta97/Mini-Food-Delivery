@@ -59,11 +59,17 @@ const StoreContextProvider = (props) => {
         const response = await axios.get(url+"api/food/list");
         setFoodlist(response.data.data);       
     }
+    /*
+    {
+        "success": true,
+        "data": [ ...foods ]
+    }
+    */
 
     const loadCartData = async(token) => {
         const response = await axios.post(url+"api/cart/get", {} , {headers: {token}}); // {} -> we are passing empty object, as to hit the getCart api we need not send body.
-        // and we save the cart item in a variable in setCaerItem
-        setCartItem(response.data.cartData);
+        // and we save the cart item in a variable in setCartItem
+        setCartItem(response.data.cartData); // this cartData is passed from backend
     }
 
     // by using this useEffect(), if we reload the page we won't signout from page.
