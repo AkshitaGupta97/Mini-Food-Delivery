@@ -56,7 +56,7 @@ function Navbar({setShowLogin}) {
                     : <div className="navbar-profile">
                         <p><span className=" icons material-symbols-outlined">artist</span></p>
                         <ul className="nav-profile-dropdown">
-                            <li><p><span className="icons material-symbols-outlined">shopping_bag_speed</span></p><span className="list-span">Orders</span></li>
+                            <li onClick={()=> navigate("/myorders")}><p><span className="icons material-symbols-outlined">shopping_bag_speed</span></p><span className="list-span">Orders</span></li>
                             <hr />
                             <li onClick={Logout}><p><span className="icons material-symbols-outlined">account_circle_off</span></p><span className="list-span">Logout</span></li>
                         </ul>
