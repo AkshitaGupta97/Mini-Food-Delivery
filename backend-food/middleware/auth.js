@@ -9,6 +9,9 @@ const authMiddleware = async (req, res, next) => {
     }
     try{
         const token_decode = jwt.verify(token,process.env.JWT_SECRET);
+        // Ensure req.body is always defined
+        if (!req.body) req.body = {};
+        
         req.body.userId =  token_decode.id;
         next();
     }
@@ -17,7 +20,6 @@ const authMiddleware = async (req, res, next) => {
         res.json({success:false, message:"Error"});
     }
 }
-
 
 /*const authMiddleware = async (req, res, next) => {
     try {

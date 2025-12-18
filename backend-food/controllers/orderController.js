@@ -73,8 +73,18 @@ const verifyOrder = async(req, res) => {
         res.json({success:false, message:error});
     }
 }
+// user order for frontend
+const userOrder = async(req, res) => {
+    try {
+        const orders = await orderModel.find({userId:req.body.userId}); // userId we will get from middleware
+        res.json({success:true, data:orders});
+    } catch (error) {
+        console.log(error);
+        res.json({success:false, message:"Error"});
+    }
+}
 
-export {placeOrder, verifyOrder}
+export {placeOrder, verifyOrder, userOrder}
 
 /*
 The placeOrder function is an Express.js route handler that:
