@@ -3,6 +3,7 @@
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 1px;
+    margin-left: 200px;
 }
 .list-title {
     color: rgb(18, 18, 123);
@@ -50,6 +51,9 @@
 
 }
 @media (max-width: 560px){
+    .list {
+        margin-left: 100px;
+    }
    .list-table-format {
         font-size: 14px;
         grid-template-columns: 1fr 1.4fr 1fr;

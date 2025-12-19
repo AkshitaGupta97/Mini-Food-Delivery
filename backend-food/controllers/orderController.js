@@ -84,7 +84,18 @@ const userOrder = async(req, res) => {
     }
 }
 
-export {placeOrder, verifyOrder, userOrder}
+// listing orders for Admin panel
+const listOrders = async (req, res) => {
+    try {
+        const orders = await orderModel.find({});
+        res.json({success:true, data:orders});
+    } catch (error) {
+        console.log(error);
+        res.json({success:false, message:"Error"});
+    }
+}
+
+export {placeOrder, verifyOrder, userOrder, listOrders}
 
 /*
 The placeOrder function is an Express.js route handler that:
