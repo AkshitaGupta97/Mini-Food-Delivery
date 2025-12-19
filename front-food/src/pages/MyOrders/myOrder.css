@@ -27,14 +27,14 @@
     border-radius: 4px;
 }
 .my-orders-order .span-image {
-    color: #090998;
+    color: #be280e;
     font-size: 32px;
 }
 .my-orders-order .span-dot {
     color: red;
 }
 .my-orders-order p b {
-    color: #05055f;
+    color: #47535f;
 }
 .my-orders-order button {
     background-color: crimson;
@@ -48,7 +48,20 @@
     transform: translateY(-4px);
     background-color: #76041b;
 }
-
+/* added css for order-status*/
+.order-status {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.order-status.Delivered{
+    color: green;
+}
+.order-status.Out-for-delivery{
+    color: orange;
+}
+.order-status.Cancelled{
+    color: red;
+}
 @media (max-width:900px){
     .my-orders-order{
         grid-template-columns: 1fr 2fr 1fr;

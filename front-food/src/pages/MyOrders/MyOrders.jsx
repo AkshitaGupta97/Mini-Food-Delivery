@@ -44,8 +44,8 @@ function MyOrders() {
                 </p>
                 <p>${amount} </p>
                 <p>Items: {order.items.length} </p>
-                <p><span className="span-dot">&#x25cf;</span> <b>{order.status}</b> </p>
-                <button>Track Order</button>
+                <p><span className="span-dot">&#x25cf;</span> <b className={`order-status ${order.status}`}>{order.status}</b> </p>
+                <button onClick={fetchOrders}>Track Order</button>
               </div>
             )
           })

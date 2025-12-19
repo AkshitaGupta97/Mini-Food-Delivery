@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // placing order from frontend
 const placeOrder = async (req, res) => {
-    const frontend_url = "http://localhost:5173";  //This is the frontend app’s base URL.Used later for redirecting after payment success or failure.
+    const frontend_url = "http://localhost:5174";  //This is the frontend app’s base URL.Used later for redirecting after payment success or failure.
 
     try {
         const newOrder = new orderModel({  // - A new order document is created using orderModel
