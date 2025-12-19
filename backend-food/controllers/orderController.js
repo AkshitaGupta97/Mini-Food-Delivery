@@ -95,7 +95,18 @@ const listOrders = async (req, res) => {
     }
 }
 
-export {placeOrder, verifyOrder, userOrder, listOrders}
+// updating Admin-panel status
+const updateStatus = async(req, res) => {
+    try {
+        await orderModel.findByIdAndUpdate(req.body.orderId, {status: req.body.status});
+        res.json({success:true, message:"Status Updated"})
+    } catch (error) {
+        console.log("error in backend in updateStatus")
+        res.json({success:false, message:"Error"});
+    }
+}
+
+export {placeOrder, verifyOrder, userOrder, listOrders, updateStatus }
 
 /*
 The placeOrder function is an Express.js route handler that:
