@@ -11,7 +11,7 @@ import { ToastContainer } from 'react-toastify';
 
 function App() {
 
-  const url = "http://localhost:4000";
+  const url = "https://mini-food-delivery-backend.onrender.com";
 
   return (
     <div>
