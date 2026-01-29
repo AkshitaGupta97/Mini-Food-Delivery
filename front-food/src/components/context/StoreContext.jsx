@@ -3,7 +3,12 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 //import { food_list } from "../../assets/MenuAssets";  //as this food_list is from frontend, so we have made it comment, beacuse we need to fetch data from backend
 // createContext is used to create a Context object in React, which allows for sharing state across components without prop drilling.
-export const StoreContext = createContext(null);
+
+export const StoreContext = createContext({
+    food_list: [],
+    cartItem: {},
+    addToCart: () => {}
+});
 
 const StoreContextProvider = (props) => {
 
