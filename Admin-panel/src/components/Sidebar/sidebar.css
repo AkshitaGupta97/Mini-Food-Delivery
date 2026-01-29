@@ -7,8 +7,8 @@
   padding: 8px 0;
   position: fixed;
   left: 0;
-  top: 8;
-  bottom: 8;
+  top: 8px;
+  bottom: 8px;
 }
 
 .sidebar-options {
@@ -59,18 +59,19 @@
     color: black;
 }
 
-@media (max-width: 600px){
+@media (max-width: 600px) {
   .sidebar {
     width: 100px;
   }
-    .sidebar-option div {
-        display: none;
-    }
-    .sidebar-option:hover {
-        & div{
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-        }
-    }
+
+  .sidebar-option div {
+    display: none;
+  }
+
+  .sidebar-option:hover div {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+  }
 }
+
