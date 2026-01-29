@@ -2,7 +2,7 @@
 import { Routes, Route } from 'react-router'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
-import Sidebar from './components/sidebar/Sidebar'
+import Sidebar from './Sidebar/Sidebar'
 import Add from './pages/Add/Add'
 import List from './pages/List/List'
 import Order from './pages/Orders/Order'
@@ -21,7 +21,7 @@ function App() {
       <Navbar />
       <hr />
       <div className="app-content">
-        <Sidebar />
+        <Sidebar  />
 
         <Routes>
           <Route path='/add' element={<Add url={url}/>} />
