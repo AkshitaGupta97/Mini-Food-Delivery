@@ -2,7 +2,7 @@
 import { Routes, Route } from 'react-router'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
-import Sidebar from './Sidebar/Sidebar'
+import Sidebar from './components/Sidebar/Sidebar'
 import Add from './pages/Add/Add'
 import List from './pages/List/List'
 import Order from './pages/Orders/Order'
