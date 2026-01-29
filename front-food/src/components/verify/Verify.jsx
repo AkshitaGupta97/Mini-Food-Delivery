@@ -18,7 +18,6 @@ function Verify() {
         success,
         orderId
       });
-
       if (response.data.success) {
         navigate("/myorders");
       } else {
@@ -29,7 +28,7 @@ function Verify() {
       navigate("/");
     }
   };
-
+  
   useEffect(() => {
     verifyPayment();
   }, []);
